@@ -3,6 +3,6 @@
   "release-type": "simple",
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": false,
-  "bootstrap-sha": "",
+  "bootstrap-sha": "d9da1b91d17fd2ede34fa19ce4633941f5997f97",
   "packages": {}
 }

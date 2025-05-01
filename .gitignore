@@ -12,5 +12,20 @@ Gemfile.lock
 .terraform.lock.hcl
 terraform.tfstate*
 *.auto.tfvars*
+*.auto.pkrvars*
 terraform.tfvars*
 !terraform.tfvars.example
+*.auto.pkrvars*
+
+# Ignore generated files from test harness
+test/harness.pkvars.hcl
+test/harness.tfvars
+test/harness.json
+test/*-ssh
+test/*-ssh-config
+test/*-ssh.pub
+
+# Ignore python/pytest files
+__pycache__
+.pytest_cache
+.venv
