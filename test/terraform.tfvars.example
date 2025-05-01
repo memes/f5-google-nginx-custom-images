@@ -1,0 +1,21 @@
+# GCP project identifier - all resources will be created in this project
+project_id = "my-gcp-project"
+
+# Compute Engine region - all regional and zonal resources will be created in this location
+region = "us-west1"
+
+# Name (and prefix) to use for test resources
+name = "my-custom-nginx-plus"
+
+# NGINX One key to use when registering NGINX+ instances
+#  - for the static N+ image this value will be added to /etc/nginx-agent/nginx-agent.conf in the image and used by any
+#    instance that uses the static image
+#  - for the runtime N+ image the value will be used in cloud-init files passed to the instances via metadata
+nginx_one_key = "REPLACE WITH A VALID NGINX ONE KEY"
+
+# An optional set of labels to add to GCP resources - the test harness will add add some additional labels to allow the
+# python tests to run the correct set of validations
+labels = {
+  owner   = "username"
+  purpose = "testing"
+}

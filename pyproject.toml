@@ -1,0 +1,24 @@
+[project]
+name = "f5-google-nginx-custom-images"
+version = "0.1.0"
+description = "Create custom NGINX+ PAYG images with packer"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-cloud-compute>=1.29.0",
+    "pytest-testinfra[paramiko]>=10.2.2",
+    "requests>=2.32.3",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+]
+
+[tool.pytest.ini_options]
+log_cli = true
+# spell-checker: disable
+filterwarnings = [
+    "ignore::urllib3.exceptions.InsecureRequestWarning",
+]
+# spell-checker: enable

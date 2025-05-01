@@ -11,4 +11,40 @@ fileignoreconfig:
 - filename: README.md
   ignore_detectors:
   - filecontent
+- filename: release-please-config.json
+  checksum: e3c8d6186992d1098a1d3ced83543b0c5ec338872e024a41987fa79c33dd612c
+  ignore_detectors:
+  - filecontent
+- filename: files/install-nginx-agent.sh
+  checksum: 95abc7a11d8ad0dee523b9025851dae9b34cef531dcd0004ec4a327bb3bd2a55
+- filename: uv.lock
+  checksum: 2435a0d34ecbe1f4ecaefc98057ae41a60aef6d869591814af767da9dacdafa2
+  ignore_detectors:
+  - filecontent
+- filename: main.pkr.hcl
+  checksum: ff67a37e543c96a8a69790037d70cca6d4a19f9d8b5ae998ee82e74f062a9a9a
+- filename: test/terraform.tfvars.example
+  checksum: 4a42f6350b3660da46f166dbb6e8ccb2fc19e7f51e97dd40e302eeab164ea58d
+  ignore_detectors:
+  - filecontent
+- filename: test/packer.tf
+  checksum: 977c5796ba6df079ee3ab990ceaead515ef987692d746b873a02e2eed227ba2b
+- filename: test/main.tf
+  checksum: 5c7f19bac80e7ff6112f1a6cac1caa9bc099852e1eaad7a42d566d97be8d524a
+- filename: nginx-static.pkr.hcl
+  checksum: 2e9fd0a73af44e7f79f81c4d32cf06aa6bbcccdf094c858e6c914e8bf4e1babe
+- filename: test/fixture/README.md
+  checksum: 2af6c09c158e4b3d11c3b225095d0f729f5bdf6fbe7054606238a193879cf371
+  ignore_detectors:
+  - filecontent
+- filename: test/nginx.tf
+  checksum: f8b46e67ddc9f9395decae34baa41c5b7afd30261df44d581ad27eded0de1274
+- filename: test/README.md
+  checksum: ccd306fb315dde3f55f4777fd26213d130759a11744339b61eefa6c89327916e
+  ignore_detectors:
+  - filecontent
+- filename: test/fixture/main.tf
+  checksum: d7476b936c1b5470b80f8a832189fbd3d159373e3f7f4dffb8aa479cf28a3dec
+- filename: variables.pkr.hcl
+  checksum: 39e5662e2b5946cdfd355c73871ba4af5a97981163c6ec0b7087390f89d0dc76
 version: "1.0"

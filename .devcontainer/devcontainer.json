@@ -1,6 +1,6 @@
 {
     "name": "memes-f5-google-nginx-custom-images",
-    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
     "features": {
         "ghcr.io/memes/devcontainers-features/direnv:1": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
@@ -13,7 +13,7 @@
         },
         "ghcr.io/memes/devcontainers-features/starship:1": {},
         "ghcr.io/memes/devcontainers-features/talisman:1": {
-            "version": "1.35.1"
+            "version": "1.36.1"
         },
         "ghcr.io/memes/devcontainers-features/terraform-docs:1": {
             "version": "0.20.0"
@@ -26,18 +26,24 @@
         "vscode": {
             "extensions": [
                 "Gruntfuggly.todo-tree",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-python-envs",
                 "redhat.vscode-yaml",
                 "streetsidesoftware.code-spell-checker",
+                "tamasfe.even-better-toml",
                 "gamunu.opentofu",
                 "esbenp.prettier-vscode",
                 "DavidAnson.vscode-markdownlint",
-                "hashicorp.hcl"
+                "hashicorp.hcl",
+                "charliermarsh.ruff"
             ]
         }
     },
     "onCreateCommand": {
-        "install-pre-commit": "sudo sh -c 'apt update && apt install -y --no-install-recommends pipx && rm -rf /var/lib/apt/lists/*' && pipx install pre-commit && pre-commit install --hook-type commit-msg --hook-type pre-commit",
-        "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
+        "install-pre-commit": "/usr/local/py-utils/bin/pipx install uv && uv sync && uv run pre-commit install --hook-type commit-msg --hook-type pre-commit",
+         "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
     },
     "containerUser": "vscode",
     "updateRemoteUserUID": true,

@@ -1,0 +1,52 @@
+#cloud-config
+# yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json
+# spell-checker: disable
+---
+write_files:
+  - path: /etc/nginx-agent/nginx-agent.conf
+    permissions: '0640'
+    owner: 'root:root'
+    content: |
+      server:
+        token: "${nginx_one_key}"
+        host: agent.connect.nginx.com
+        grpcPort: 443
+        backoff:
+          initial_interval: 100ms
+          randomization_factor: 0.10
+          multiplier: 1.5
+          max_interval: 1m
+          max_elapsed_time: 0
+      tls:
+        enable: true
+        skip_verify: false
+      log:
+        level: info
+        path: /var/log/nginx-agent/
+      nginx:
+        exclude_logs: ""
+        socket: "unix:/var/run/nginx-agent/nginx.sock"
+      dataplane:
+        status:
+          poll_interval: 30s
+          report_interval: 24h
+      metrics:
+        bulk_size: 20
+        report_interval: 1m
+        collection_interval: 15s
+        mode: aggregated
+        backoff:
+          initial_interval: 100ms
+          randomization_factor: 0.10
+          multiplier: 1.5
+          max_interval: 1m
+          max_elapsed_time: 0
+      config_dirs: "/etc/nginx:/usr/local/etc/nginx:/usr/share/nginx/modules:/etc/nms"
+      queue_size: 100
+      extensions:
+        - nginx-app-protect
+      nginx_app_protect:
+        report_interval: 15s
+        precompiled_publication: true
+runcmd:
+  - systemctl restart nginx-agent

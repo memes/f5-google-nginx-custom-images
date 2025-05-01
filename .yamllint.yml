@@ -1,0 +1,11 @@
+---
+extends: default
+
+rules:
+  comments:
+    ignore: |
+      test/fixture/templates/cloud-config*.yaml
+  line-length:
+    max: 120
+    ignore: |
+      test/fixture/templates/cloud-config*.yaml
