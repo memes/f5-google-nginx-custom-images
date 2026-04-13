@@ -5,7 +5,7 @@ description = "Create custom NGINX+ PAYG images with packer"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "google-cloud-compute>=1.29.0",
+    "google-cloud-compute>=1.47.0",
     "pytest-testinfra[paramiko]>=10.2.2",
     "requests>=2.32.3",
 ]
